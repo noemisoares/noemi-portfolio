@@ -4,17 +4,24 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export function Header() {
-  const [darkMode, setDarkMode] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return localStorage.getItem("darkMode") === "true";
-  });
+  const [darkMode, setDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    const saved = localStorage.getItem("darkMode") === "true";
+    setDarkMode(saved);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     const html = document.documentElement;
     if (darkMode) html.classList.add("dark");
     else html.classList.remove("dark");
     localStorage.setItem("darkMode", darkMode ? "true" : "false");
-  }, [darkMode]);
+  }, [darkMode, mounted]);
+
+  if (!mounted) return null;
 
   return (
     <header className="site-header">
