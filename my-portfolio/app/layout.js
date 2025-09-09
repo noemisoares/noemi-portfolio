@@ -11,12 +11,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
+      <head>
+        <meta charSet="utf-8" />
+        <meta
+          name="viewpoint"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+      </head>
       <body>
         <Header />
         <main style={{ paddingTop: "80px" }}>{children}</main>
-        <footer className="site-footer">
-          <small>© {new Date().getFullYear()} Noemi Soares</small>
-        </footer>
       </body>
     </html>
   );
