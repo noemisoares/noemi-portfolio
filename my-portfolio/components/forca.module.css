@@ -1,0 +1,92 @@
+.forcaSection {
+  padding: 3rem 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: var(--bg);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.forcaContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.palavra {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.letra {
+  margin: 0 0.25rem;
+}
+
+.letraForm {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.letraInput {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  width: 60px;
+  text-align: center;
+}
+
+.submitBtn, .restartBtn {
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submitBtn:hover, .restartBtn:hover {
+  background: var(--primary);
+}
+
+.letrasUsadas {
+  margin-top: 0.5rem;
+  color: var(--text);
+}
+
+.tentativas {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.status {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.forcaDrawing {
+  position: relative;
+  width: 120px;
+  height: 200px;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--text);
+  border-bottom: 4px solid var(--text);
+}
+
+.bonecoPart {
+  position: absolute;
+  background: var(--text);
+}
+
+.part1 { top: 0; left: 100px; width: 4px; height: 40px; } /* corda */
+.part2 { top: 40px; left: 80px; width: 40px; height: 4px; } /* topo */
+.part3 { top: 44px; left: 100px; width: 40px; height: 4px; } /* cabeça */
+.part4 { top: 48px; left: 100px; width: 4px; height: 40px; } /* corpo */
+.part5 { top: 88px; left: 80px; width: 40px; height: 4px; } /* braços */
+.part6 { top: 88px; left: 100px; width: 4px; height: 40px; } /* pernas */
