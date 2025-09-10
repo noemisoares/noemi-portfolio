@@ -21,7 +21,7 @@ export function Forca() {
     "troll",
     "orc",
     "elfo",
-    "anão",
+    "anao",
     "gigante",
     "vampiro",
     "zumbi",
@@ -32,7 +32,7 @@ export function Forca() {
     "machado",
     "cajado",
     "adaga",
-    "poção",
+    "pocao",
     "elixir",
     "amuleta",
     "anel",
@@ -43,12 +43,12 @@ export function Forca() {
     "cape",
     "grimoire",
     "runas",
-    "feitiço",
+    "feitico",
     "incantacao",
     "missao",
     "aventura",
     "tesouro",
-    "dragão",
+    "dragao",
     "castelo",
     "floresta",
     "masmorra",
@@ -56,15 +56,19 @@ export function Forca() {
     "aliado",
     "guilda",
     "reino",
+    "bestiario",
+    "portal",
+    "orcamento",
+    "mana",
+    "ritual",
   ];
-
-
 
   const [palavra, setPalavra] = useState("");
   const [tentativas, setTentativas] = useState(6);
   const [letrasUsadas, setLetrasUsadas] = useState([]);
   const [letraInput, setLetraInput] = useState("");
   const [status, setStatus] = useState("Jogando");
+  const [aviso, setAviso] = useState("");
 
   useEffect(() => {
     iniciarJogo();
@@ -77,13 +81,26 @@ export function Forca() {
     setLetrasUsadas([]);
     setLetraInput("");
     setStatus("Jogando");
+    setAviso("");
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     const letra = letraInput.toLowerCase();
-    if (!letra || letrasUsadas.includes(letra)) return;
 
+    if (!letra.match(/^[a-z]$/)) {
+      setAviso("Digite apenas letras.");
+      setLetraInput("");
+      return;
+    }
+
+    if (letrasUsadas.includes(letra)) {
+      setAviso(`A letra "${letra}" já foi usada!`);
+      setLetraInput("");
+      return;
+    }
+
+    setAviso("");
     setLetrasUsadas([...letrasUsadas, letra]);
 
     if (!palavra.includes(letra)) {
@@ -94,6 +111,7 @@ export function Forca() {
   }
 
   useEffect(() => {
+    if (!palavra) return;
     if (tentativas <= 0) setStatus("Perdeu");
     else if (palavra.split("").every((l) => letrasUsadas.includes(l)))
       setStatus("Venceu");
@@ -126,7 +144,10 @@ export function Forca() {
               type="text"
               maxLength={1}
               value={letraInput}
-              onChange={(e) => setLetraInput(e.target.value)}
+              onChange={(e) => {
+                setLetraInput(e.target.value);
+                setAviso(""); // limpa aviso ao digitar
+              }}
               placeholder="Digite uma letra"
               className={styles.letraInput}
             />
@@ -135,6 +156,8 @@ export function Forca() {
             </button>
           </form>
         )}
+
+        {aviso && <p className={styles.aviso}>{aviso}</p>}
 
         <div className={styles.letrasUsadas}>
           <div>

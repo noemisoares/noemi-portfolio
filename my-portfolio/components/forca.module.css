@@ -1,11 +1,16 @@
 .forcaSection {
-  padding: 3rem 1rem;
+  padding: 1rem 1rem;
   max-width: 800px;
-  margin: 2rem auto;
+  margin: auto;
+  margin-top: 1px;
   background: var(--bg);
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.forcaSection h2 {
+  margin-bottom: 30px;
 }
 
 .forcaContainer {
@@ -58,16 +63,23 @@
 }
 
 .correta {
-  color: #16a34a;
+  color: #12a949;
   margin-right: 0.3rem;
   font-weight: bold;
 }
 
 .errada {
-  color: #dc2626;
+  color: #cb0e0e;
   margin-right: 0.3rem;
   font-weight: bold;
 }
+
+.aviso {
+  color: #e53e3e;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
 
 .tentativas {
   margin-top: 0.5rem;
@@ -91,7 +103,7 @@
 
 .bonecoPart {
   position: absolute;
-  background: var(--text);
+  background: var(--primary);
 }
 
 .part1 {
