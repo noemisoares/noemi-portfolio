@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import { Social } from "@/components/Social";
 import { Footer } from "@/components/Footer";
 import { Resume } from "@/components/Resume";
-import { Projects }from "@/components/Projects"
+import { Projects } from "@/components/Projects";
 
 export default function Home() {
   return (
@@ -22,7 +22,7 @@ export default function Home() {
           <h2>Olá, eu sou Noemi Soares</h2>
           <p>
             Desenvolvedora apaixonada por tecnologia, focada em criar soluções
-            criativas e funcionais. 
+            criativas e funcionais.
           </p>
           <Social />
         </div>

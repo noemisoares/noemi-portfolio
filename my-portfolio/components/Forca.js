@@ -5,13 +5,60 @@ import styles from "./forca.module.css";
 
 export function Forca() {
   const palavras = [
-    "javascript", "react", "nextjs", "programacao", "forca",
-    "desenvolvimento", "tecnologia", "computador", "interface",
-    "frontend", "backend", "fullstack", "codigo", "github",
-    "algoritmo", "palavra", "projeto", "usuario", "teste",
-    "funcao", "variavel", "loop", "condicional", "array",
-    "objeto", "componente", "estilo", "design", "layout", "interface"
+    "guerreiro",
+    "mago",
+    "arqueiro",
+    "ladino",
+    "clerigo",
+    "paladino",
+    "druida",
+    "feiticeiro",
+    "barbaro",
+    "monge",
+    "bardo",
+    "golem",
+    "lobisomem",
+    "troll",
+    "orc",
+    "elfo",
+    "anão",
+    "gigante",
+    "vampiro",
+    "zumbi",
+    "espada",
+    "escudo",
+    "arco",
+    "besta",
+    "machado",
+    "cajado",
+    "adaga",
+    "poção",
+    "elixir",
+    "amuleta",
+    "anel",
+    "armadura",
+    "capacete",
+    "luvas",
+    "botas",
+    "cape",
+    "grimoire",
+    "runas",
+    "feitiço",
+    "incantacao",
+    "missao",
+    "aventura",
+    "tesouro",
+    "dragão",
+    "castelo",
+    "floresta",
+    "masmorra",
+    "inimigo",
+    "aliado",
+    "guilda",
+    "reino",
   ];
+
+
 
   const [palavra, setPalavra] = useState("");
   const [tentativas, setTentativas] = useState(6);
@@ -48,7 +95,8 @@ export function Forca() {
 
   useEffect(() => {
     if (tentativas <= 0) setStatus("Perdeu");
-    else if (palavra.split("").every((l) => letrasUsadas.includes(l))) setStatus("Venceu");
+    else if (palavra.split("").every((l) => letrasUsadas.includes(l)))
+      setStatus("Venceu");
   }, [letrasUsadas, tentativas, palavra]);
 
   function displayPalavra() {
@@ -62,7 +110,7 @@ export function Forca() {
   return (
     <section className={styles.forcaSection}>
       <h2>Jogo da Forca</h2>
-      
+
       <div className={styles.forcaContainer}>
         <div className={styles.forcaDrawing}>
           {[...Array(6 - tentativas)].map((_, i) => (
@@ -82,18 +130,43 @@ export function Forca() {
               placeholder="Digite uma letra"
               className={styles.letraInput}
             />
-            <button type="submit" className={styles.submitBtn}>Enviar</button>
+            <button type="submit" className={styles.submitBtn}>
+              Enviar
+            </button>
           </form>
         )}
 
         <div className={styles.letrasUsadas}>
-          Letras usadas: {letrasUsadas.join(", ")}
+          <div>
+            <strong>Letras corretas:</strong>{" "}
+            {letrasUsadas
+              .filter((l) => palavra.includes(l))
+              .map((l, i) => (
+                <span key={i} className={styles.correta}>
+                  {l}
+                </span>
+              ))}
+          </div>
+          <div>
+            <strong>Letras erradas:</strong>{" "}
+            {letrasUsadas
+              .filter((l) => !palavra.includes(l))
+              .map((l, i) => (
+                <span key={i} className={styles.errada}>
+                  {l}
+                </span>
+              ))}
+          </div>
         </div>
 
         {status !== "Jogando" && (
           <div className={styles.status}>
-            {status === "Venceu" ? "Parabéns! Você ganhou!" : `Você perdeu! Palavra: ${palavra}`}
-            <button onClick={iniciarJogo} className={styles.restartBtn}>Reiniciar</button>
+            {status === "Venceu"
+              ? "Parabéns! Você ganhou!"
+              : `Você perdeu! Palavra: ${palavra}`}
+            <button onClick={iniciarJogo} className={styles.restartBtn}>
+              Reiniciar
+            </button>
           </div>
         )}
 

@@ -1,4 +1,5 @@
 import styles from "./components.module.css";
+import Link from "next/link";
 
 export function Projects() {
 
@@ -6,7 +7,7 @@ export function Projects() {
     {
       title: "Jogo da Forca",
       description: "Implementação do Jogo da Forca em JavaScript, React e Next.js.",
-      link: "/forca/page.js",
+      link: "/forca",
       image: "/forca.png", // imagem  public/
     },
  
@@ -27,9 +28,9 @@ export function Projects() {
             )}
             <h3>{project.title}</h3>
             <p>{project.description}</p>
-            <a href={project.link} className={styles.projectButton}>
-              Ver Projeto
-            </a>
+            <Link href="/forca">
+              <button className={styles.projectButton}><strong>Ver Projeto</strong></button>
+            </Link>
           </div>
         ))}
       </div>
