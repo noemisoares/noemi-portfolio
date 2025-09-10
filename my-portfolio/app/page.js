@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import { Social } from "@/components/Social";
 import { Footer } from "@/components/Footer";
 import { Resume } from "@/components/Resume";
+import { Projects }from "@/components/Projects"
 
 export default function Home() {
   return (
@@ -26,7 +27,12 @@ export default function Home() {
           <Social />
         </div>
       </section>
-     <Resume />
+      <section id="resume">
+        <Resume />
+      </section>
+      <section id="projects">
+        <Projects />
+      </section>
       <Footer />
     </main>
   );

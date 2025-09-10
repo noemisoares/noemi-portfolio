@@ -29,9 +29,9 @@ export function Header() {
         <h1 className="brand">Noemi Soares</h1>
         <ul className="nav-list">
           <li><Link href="/">Home</Link></li>
-          <li><Link href="/about">Sobre</Link></li>
-          <li><Link href="/projects">Projetos</Link></li>
-          <li><Link href="/contact">Contato</Link></li>
+          <li><a href="#resume">Sobre</a></li>
+          <li><a href="#projects">Projetos</a></li>
+          <li><a href="#contact">Contato</a></li>
         </ul>
         <button
           className="theme-toggle"
