@@ -131,9 +131,7 @@ export function Forca() {
 
       <div className={styles.forcaContainer}>
         <div className={styles.forcaDrawing}>
-          {[...Array(6 - tentativas)].map((_, i) => (
-            <div key={i} className={`${styles.bonecoPart} part${i + 1}`}></div>
-          ))}
+          {/*Nv forca vouu coloca aq*/}
         </div>
 
         <div className={styles.palavra}>{displayPalavra()}</div>
@@ -146,7 +144,7 @@ export function Forca() {
               value={letraInput}
               onChange={(e) => {
                 setLetraInput(e.target.value);
-                setAviso(""); // limpa aviso ao digitar
+                setAviso("");
               }}
               placeholder="Digite uma letra"
               className={styles.letraInput}
