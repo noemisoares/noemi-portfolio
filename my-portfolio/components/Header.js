@@ -26,7 +26,7 @@ export function Header() {
   return (
     <header className="site-header">
       <nav className="nav">
-        <h1 className="brand">Noemi Soares</h1>
+        <h1 className="name">Noemi Soares</h1>
         <ul className="nav-list">
           <li><Link href="/">Home</Link></li>
           <li><a href="#resume">Sobre</a></li>
@@ -34,7 +34,7 @@ export function Header() {
           <li><a href="#contact">Contato</a></li>
         </ul>
         <button
-          className="theme-toggle"
+          className="theme-button"
           onClick={() => setDarkMode((s) => !s)}
           aria-label="Alternar tema claro/escuro"
         >

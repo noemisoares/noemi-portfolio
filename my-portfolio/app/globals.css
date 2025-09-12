@@ -4,8 +4,9 @@
   box-sizing: border-box;
 }
 
-html, body {
-  font-family: 'Inter', sans-serif;
+html,
+body {
+  font-family: "Inter", sans-serif;
   background: var(--bg);
   color: var(--text);
   transition: background 0.3s, color 0.3s;
@@ -38,7 +39,7 @@ a {
   left: 0;
   width: 100%;
   background: var(--header-bg);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   z-index: 1000;
 }
 
@@ -52,7 +53,7 @@ a {
   padding: 1rem;
 }
 
-.brand {
+.name {
   color: var(--primary);
   font-weight: 700;
 }
@@ -68,7 +69,7 @@ a {
   text-decoration: none;
 }
 
-.theme-toggle {
+.theme-button {
   background: var(--secondary);
   color: white;
   border: none;
