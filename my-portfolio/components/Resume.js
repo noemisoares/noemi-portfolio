@@ -1,4 +1,4 @@
-import styles from "./components.module.css";
+import styles from "./resume.module.css";
 
 export function Resume() {
   return (

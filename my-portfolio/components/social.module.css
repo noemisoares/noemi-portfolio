@@ -1,0 +1,16 @@
+.socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.socials a {
+  font-size: 1.5rem;
+  color: var(--text);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.socials a:hover {
+  transform: scale(1.2);
+  color: var(--primary);
+}

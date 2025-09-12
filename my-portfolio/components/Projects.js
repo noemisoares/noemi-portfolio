@@ -1,4 +1,4 @@
-import styles from "./components.module.css";
+import styles from "./projects.module.css";
 import Link from "next/link";
 
 export function Projects() {

@@ -1,0 +1,20 @@
+.footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  border-top: 1px solid var(--secondary);
+  margin-top: 2rem;
+}
+
+.socialsFooter a {
+  font-size: 1.2rem;
+}
+
+.socialsFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.5rem 0 2px 0;
+}

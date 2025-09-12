@@ -1,7 +1,7 @@
 "use client";
 
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
-import styles from "./components.module.css";
+import styles from "./social.module.css";
 
 export function Social({ className }) {
   return (

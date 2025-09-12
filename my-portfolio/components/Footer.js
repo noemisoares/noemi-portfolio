@@ -1,4 +1,4 @@
-import styles from "./components.module.css";
+import styles from "./footer.module.css";
 import { Social } from "./Social";
 
 export function Footer() {
