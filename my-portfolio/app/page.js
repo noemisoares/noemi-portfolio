@@ -33,7 +33,10 @@ export default function Home() {
       <section id="projects">
         <Projects />
       </section>
-      <Footer />
+      <section id="contact">
+        <Footer />
+      </section>
+      
     </main>
   );
 }
