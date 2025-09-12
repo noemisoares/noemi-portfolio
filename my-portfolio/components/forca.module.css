@@ -2,7 +2,7 @@
   padding: 1rem 1rem;
   max-width: 800px;
   margin: auto;
-  margin-top: -32px;
+  margin-top: -35px;
   border-radius: 20px;
   text-align: center;
 }
@@ -79,9 +79,8 @@
   font-weight: bold;
 }
 
-
 .tentativas {
-  margin-top: 0.5rem;
+  margin-top: 0.1rem;
   font-weight: bold;
 }
 
@@ -98,5 +97,5 @@
   object-fit: contain;
   display: block;
   margin-top: -60px;
-  margin-bottom: -60px;
+  margin-bottom: -50px;
 }

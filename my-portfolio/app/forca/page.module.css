@@ -1,13 +1,13 @@
 .page {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   padding: 2rem;
   min-height: 70vh;
 }
 
 .rules {
   width: 500px;
-  padding: 1.5rem;
+  padding: 0.5rem;
 }
 
 .rules h2 {
@@ -19,7 +19,8 @@
 
 .rules ul {
   list-style: disc;
-  padding-left: 1.2rem;
+  margin-top: 10px;
+  padding-left: 1.5rem;
 }
 
 .rules li {

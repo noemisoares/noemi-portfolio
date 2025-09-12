@@ -8,7 +8,7 @@ export default function ForcaPage() {
         <h2>
           <strong>Tema: Dungeons and Dragons</strong>
         </h2>
-        <p><strong>Bem-vindo(a) ao jogo da forca com palavras do universo de D&D!</strong></p>
+        <p><strong>Bem-vindo(a) ao jogo da forca com a tematica das palavras vindas do universo de D&D!</strong></p>
         <ul>
           <li>Você começa com 6 tentativas para acertar a palavra.</li>
           <li>Digite uma letra por vez e clique em <i>"Enviar"</i>.</li>
