@@ -146,8 +146,7 @@ export function Forca() {
 
   return (
     <section className={styles.forcaSection}>
-      <h2>Jogo da Forca</h2>
-
+      
       <div className={styles.forcaContainer}>
         <div className={styles.forcaImages}>
           <Image

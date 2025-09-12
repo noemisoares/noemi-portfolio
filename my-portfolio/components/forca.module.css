@@ -7,11 +7,6 @@
   text-align: center;
 }
 
-.forcaSection h2 {
-  margin-bottom: 1px;
-  color: var(--primary);
-}
-
 .forcaContainer {
   display: flex;
   flex-direction: column;

@@ -8,10 +8,20 @@ export default function ForcaPage() {
         <h2>
           <strong>Tema: Dungeons and Dragons</strong>
         </h2>
-        <p><strong>Bem-vindo(a) ao jogo da forca com a tematica das palavras vindas do universo de D&D!</strong></p>
+        <p>
+          <strong>Saudações, aventureiro(a)!</strong> Este é um Jogo da Forca
+          inspirado no universo de{" "}
+          <i>
+            <strong>Dungeons & Dragons</strong>
+          </i>
+          . Prepare-se para testar sua sorte e seus atributos de{" "}
+          <strong>Inteligência e Sabedoria!</strong>{" "}
+        </p>
         <ul>
           <li>Você começa com 6 tentativas para acertar a palavra.</li>
-          <li>Digite uma letra por vez e clique em <i>"Enviar"</i>.</li>
+          <li>
+            Digite uma letra por vez e clique em <i>"Enviar"</i>.
+          </li>
           <li>
             Letras corretas aparecem nas linhas e são destacadas em{" "}
             <span className={styles.greenText}>verde</span>.
@@ -22,10 +32,26 @@ export default function ForcaPage() {
           </li>
           <li>Se acertar todas as letras, você vence!</li>
           <li>Se acabar as tentativas, o jogo termina.</li>
-          <li>Use o botão <i>"Reiniciar"</i> para começar outra partida.</li>
+          <li>
+            Use o botão <i>"Reiniciar"</i> para começar outra partida.
+          </li>
         </ul>
+        <p>
+          <i>
+            Faça um teste de <strong>Investigação</strong> para tentar adivinhar
+            a letra correta. Em casos de dúvida, um teste de{" "}
+            <strong>Percepção ou Intuição</strong> pode ajudar a encontrar
+            padrões.
+          </i>
+        </p>
+        <br />
+        <p>
+          <strong>
+            Pense bem, pois cada escolha pode selar seu destino nas mãos de
+            Tiamat ou na bênção de Bahamut!
+          </strong>
+        </p>
       </aside>
-
       <section className={styles.game}>
         <Forca />
       </section>
