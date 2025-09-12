@@ -1,0 +1,35 @@
+.Languagens {
+  display: block;
+  padding: 3% 10%;
+  margin-bottom: 10%;
+}
+
+.listaLanguagens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+}
+
+.li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  color: var(--primary);
+}
+
+.titulo {
+  text-align: center;
+  color: var(--primary);
+  margin-top: -20px;
+  margin-bottom: 30px;
+}

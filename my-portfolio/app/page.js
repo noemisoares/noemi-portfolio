@@ -4,6 +4,7 @@ import { Social } from "@/components/Social";
 import { Footer } from "@/components/Footer";
 import { Resume } from "@/components/Resume";
 import { Projects } from "@/components/Projects";
+import { Languagens } from "@/components/Languagens";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
       <section id="resume">
         <Resume />
       </section>
+      <Languagens />
       <section id="projects">
         <Projects />
       </section>

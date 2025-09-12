@@ -8,7 +8,7 @@ export function Projects() {
       title: "Jogo da Forca",
       description: "Implementação do Jogo da Forca em JavaScript, React e Next.js.",
       link: "/forca",
-      image: "/forca.png", // imagem  public/
+      image: "/forca.png",
     },
  
   ];
