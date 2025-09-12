@@ -2,13 +2,13 @@
   padding: 1rem 1rem;
   max-width: 800px;
   margin: auto;
-  margin-top: 1px;
+  margin-top: -32px;
   border-radius: 20px;
   text-align: center;
 }
 
 .forcaSection h2 {
-  margin-bottom: 30px;
+  margin-bottom: 1px;
   color: var(--primary);
 }
 
@@ -89,4 +89,14 @@
   margin-top: 1rem;
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+.imagem {
+  max-width: 350px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-top: -60px;
+  margin-bottom: -60px;
 }

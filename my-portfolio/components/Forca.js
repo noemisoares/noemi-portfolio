@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import styles from "./forca.module.css";
 
 export function Forca() {
@@ -62,6 +63,17 @@ export function Forca() {
     "mana",
     "ritual",
   ];
+
+    const imagens = [
+      "/images/Guerreiro_1.png",
+      "/images/Branco_2.png",
+      "/images/Preto_3.png",
+      "/images/Azul_4.png",
+      "/images/Verde_5.png",
+      "/images/Vermelho_6.png",
+      "/images/Derrota_7.png",
+      "/images/Vitoria_8.png",
+    ];
 
   const [palavra, setPalavra] = useState("");
   const [tentativas, setTentativas] = useState(6);
@@ -125,13 +137,26 @@ export function Forca() {
     ));
   }
 
+    function getImagem() {
+      if (status === "Venceu") return imagens[7];
+      if (status === "Perdeu") return imagens[6];
+      const index = 6 - tentativas;
+      return imagens[index];
+    }
+
   return (
     <section className={styles.forcaSection}>
       <h2>Jogo da Forca</h2>
 
       <div className={styles.forcaContainer}>
-        <div className={styles.forcaDrawing}>
-          {/*Nv forca vouu coloca aq*/}
+        <div className={styles.forcaImages}>
+          <Image
+            src={getImagem()}
+            alt="Imagem do jogo"
+            width={400}
+            height={400}
+            className={styles.imagem}
+          />
         </div>
 
         <div className={styles.palavra}>{displayPalavra()}</div>
