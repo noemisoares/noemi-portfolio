@@ -64,10 +64,15 @@ export function Resume() {
           </ul>
         </div>
         <div className={styles.card}>
-          <h3>Pesquisa</h3>
-          <ul>
-            <li>React, Next.js, Javascript</li>
-            <li>C, Python, Node.js</li>
+          <h3>Competências</h3>
+          <ul className={styles.competenciasList}>
+            <li>Liderança</li>
+            <li>Trabalho em equipe</li>
+            <li>Proatividade</li>
+            <li>Resolução de problemas</li>
+            <li>Adaptabilidade</li>
+            <li>Comunicação</li>
+            <li>Organização</li>
           </ul>
         </div>
       </div>

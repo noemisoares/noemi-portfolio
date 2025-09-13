@@ -89,3 +89,13 @@
   font-style: italic;
 }
 
+.competenciasList {
+  padding-left: 1.5rem; 
+  margin-left: 1.5rem;
+}
+
+.competenciasList li {
+  list-style-type: disc;
+  margin-bottom: 0.5rem;
+}
+
