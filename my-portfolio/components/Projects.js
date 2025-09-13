@@ -1,5 +1,6 @@
 import styles from "./projects.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 export function Projects() {
 
@@ -20,16 +21,20 @@ export function Projects() {
         {projects.map((project, index) => (
           <div key={index} className={styles.projectCard}>
             {project.image && (
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
+                width={600}
+                height={300}
                 className={styles.projectImage}
               />
             )}
             <h3>{project.title}</h3>
             <p>{project.description}</p>
             <Link href="/forca">
-              <button className={styles.projectButton}><strong>Ver Projeto</strong></button>
+              <button className={styles.projectButton}>
+                <strong>Ver Projeto</strong>
+              </button>
             </Link>
           </div>
         ))}

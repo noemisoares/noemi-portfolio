@@ -20,7 +20,7 @@ export default function ForcaPage() {
         <ul>
           <li>Você começa com 6 tentativas para acertar a palavra.</li>
           <li>
-            Digite uma letra por vez e clique em <i>"Enviar"</i>.
+            Digite uma letra por vez e clique em <i>&quot;Enviar&quot;</i>.
           </li>
           <li>
             Letras corretas aparecem nas linhas e são destacadas em{" "}
@@ -33,7 +33,7 @@ export default function ForcaPage() {
           <li>Se acertar todas as letras, você vence!</li>
           <li>Se acabar as tentativas, o jogo termina.</li>
           <li>
-            Use o botão <i>"Reiniciar"</i> para começar outra partida.
+            Use o botão <i>&quot;Reiniciar&quot;</i> para começar outra partida.
           </li>
         </ul>
         <p>
