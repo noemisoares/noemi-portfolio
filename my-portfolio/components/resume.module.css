@@ -27,7 +27,6 @@
   padding: 1.5rem;
   box-shadow: 0 0.5px 2px var(--primary);
   transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease;
-  color: var(--text);
 }
 
 .card:hover {
@@ -48,12 +47,10 @@
 .card li {
   margin-bottom: 0.75rem;
   line-height: 1.5;
-  color: var(--text);
 }
 
 .linkEbook {
   color: var(--primary);
-  text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
   display: flex;
@@ -70,3 +67,25 @@
   color: var(--primary);
   font-size: 1.2rem;
 }
+
+.eduItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.iconEdu {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin: 10px;
+}
+
+.eduDetalhe {
+  font-size: 0.9rem;
+  color: gray;
+  margin-left: 5px;
+  font-style: italic;
+}
+

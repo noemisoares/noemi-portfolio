@@ -1,5 +1,6 @@
 import styles from "./resume.module.css";
 import { FaBook } from "react-icons/fa";
+import { FaGraduationCap, FaCertificate } from "react-icons/fa";
 
 export function Resume() {
   return (
@@ -20,8 +21,8 @@ export function Resume() {
                     rel="noopener noreferrer"
                     className="linkEbook"
                   >
-                    <FaBook className="iconEbook" /> <i>Linguagem Julia na
-                    Programação Quântica</i>
+                    <FaBook className="iconEbook" />{" "}
+                    <i>Linguagem Julia na Programação Quântica</i>
                   </a>
                 </li>
                 <li>
@@ -31,7 +32,8 @@ export function Resume() {
                     rel="noopener noreferrer"
                     className="linkEbook"
                   >
-                    <FaBook className="iconEbook" /> <i>Criptografia Quântica</i>
+                    <FaBook className="iconEbook" />{" "}
+                    <i>Criptografia Quântica</i>
                   </a>
                 </li>
               </ul>
@@ -45,12 +47,19 @@ export function Resume() {
         <div className={styles.card}>
           <h3>Educação</h3>
           <ul>
-            <li>
-              Bacharelado em Ciência da Computação -{" "}
+            <li className="eduItem">
+              <FaGraduationCap className="iconEdu" />
+              Bacharelado em Ciência da Computação –{" "}
               <strong>Universidade Católica de Pernambuco</strong>
+              <span className="eduDetalhe">
+                {" "}
+                (<i>Previsão de conclusão: 2027.1</i>)
+              </span>
             </li>
-            <li>
-              Curso Suporte em TI Google - <strong>Coursera</strong>
+            <li className="eduItem">
+              <FaCertificate className="iconEdu" />
+              Formação Complementar –{" "}
+              <strong>Curso de Suporte em TI Google</strong> (Coursera)
             </li>
           </ul>
         </div>
