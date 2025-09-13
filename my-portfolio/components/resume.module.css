@@ -3,6 +3,7 @@
   background: var(--bg);
   border-radius: 20px;
   margin: 2rem auto;
+  margin-top: -20px;
   max-width: 1200px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -48,4 +49,24 @@
   margin-bottom: 0.75rem;
   line-height: 1.5;
   color: var(--text);
+}
+
+.linkEbook {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.linkEbook:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.iconEbook {
+  color: var(--primary);
+  font-size: 1.2rem;
 }

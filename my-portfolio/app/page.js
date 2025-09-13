@@ -22,8 +22,15 @@ export default function Home() {
         <div className={styles.textContainer}>
           <h2>Olá, eu sou Noemi Soares</h2>
           <p>
-            Desenvolvedora apaixonada por tecnologia, focada em criar soluções
-            criativas e funcionais.
+            Sou estudante do curso de{" "}
+            <strong>
+              Ciência da Computação da Universidade Católica de Pernambuco
+              (UNICAP).
+            </strong>
+            Tenho experiência em desenvolvimento web, design de interfaces,
+            pesquisas extensionistas e boas práticas de programação. Destaco-me
+            por liderança, trabalho em equipe e resolução de problemas, sempre
+            com postura proativa e foco em resultados.
           </p>
           <Social />
         </div>
@@ -38,7 +45,6 @@ export default function Home() {
       <section id="contact">
         <Footer />
       </section>
-      
     </main>
   );
 }
