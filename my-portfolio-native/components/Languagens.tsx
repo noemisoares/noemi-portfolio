@@ -1,19 +1,46 @@
-// components/Languagens.tsx
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { theme } from "../constants/theme";
 
+const { width } = Dimensions.get("window");
+const COLUMNS = 2;
+const PADDING = theme.spacing.md;
+const CARD_WIDTH = (width - PADDING * 2 - theme.spacing.sm) / COLUMNS;
+
 export function Languagens() {
-  const techs = ["React", "Next.js", "Java", "C", "Python", "HTML", "CSS", "SQL"];
+  const techs = [
+    { name: "React", icon: "react" },
+    { name: "Next.js", icon: "arrow-right" },
+    { name: "Java", icon: "language-java" },
+    { name: "C", icon: "language-c" },
+    { name: "Python", icon: "language-python" },
+    { name: "TypeScript", icon: "language-typescript" },
+    { name: "HTML", icon: "language-html5" },
+    { name: "CSS", icon: "language-css3" },
+    { name: "SQL", icon: "database" },
+    { name: "React Native", icon: "react" },
+    { name: "Git", icon: "git" },
+    { name: "Linux", icon: "linux" },
+  ];
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tecnologias</Text>
-      <View style={styles.list}>
+      <Text style={styles.heading}>Tecnologias & Ferramentas</Text>
+      <Text style={styles.subtitle}>Linguagens e tecnologias que domino</Text>
+
+      <View style={styles.grid}>
         {techs.map((tech) => (
-          <Text key={tech} style={styles.tech}>
-            • {tech}
-          </Text>
+          <View key={tech.name} style={[styles.card, { width: CARD_WIDTH }]}>
+            <View style={styles.iconWrapper}>
+              <MaterialCommunityIcons
+                name={tech.icon as any}
+                size={32}
+                color={theme.colors.primary}
+              />
+            </View>
+            <Text style={styles.techName}>{tech.name}</Text>
+          </View>
         ))}
       </View>
     </View>
@@ -22,22 +49,50 @@ export function Languagens() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 32,
-    paddingHorizontal: 20,
+    marginTop: theme.spacing.lg,
+    paddingHorizontal: theme.spacing.md,
   },
-  title: {
-    fontSize: 18,
+  heading: {
+    fontSize: 20,
+    fontFamily: theme.fonts.bold,
     color: theme.colors.primary,
-    fontWeight: "bold",
-    marginBottom: 8,
+    marginBottom: theme.spacing.sm,
+    textAlign: "center",
   },
-  list: {
+  subtitle: {
+    fontSize: 13,
+    fontFamily: theme.fonts.regular,
+    color: "#888",
+    textAlign: "center",
+    marginBottom: theme.spacing.md,
+  },
+  grid: {
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 12,
+    gap: theme.spacing.sm,
   },
-  tech: {
+  card: {
+    backgroundColor: theme.colors.headerBackground,
+    borderRadius: theme.radius.md,
+    padding: theme.spacing.md,
+    alignItems: "center",
+    justifyContent: "center",
+    gap: theme.spacing.sm,
+    borderWidth: 1,
+    borderColor: theme.colors.primary + "20",
+  },
+  iconWrapper: {
+    width: 50,
+    height: 50,
+    borderRadius: 8,
+    backgroundColor: theme.colors.primary + "10",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  techName: {
+    fontSize: 12,
+    fontFamily: theme.fonts.bold,
     color: theme.colors.text,
-    fontSize: 14,
+    textAlign: "center",
   },
 });

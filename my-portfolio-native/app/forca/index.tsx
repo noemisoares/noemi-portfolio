@@ -1,8 +1,7 @@
-// app/forca/index.tsx
 import React from 'react';
 import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import { theme } from '../../constants/theme';
-import { Forca } from '../../components/Forca';
+import Forca from '../../components/Forca';
 
 export default function ForcaPage() {
   return (
@@ -12,17 +11,17 @@ export default function ForcaPage() {
 
         <Text style={styles.paragraph}>
           <Text style={styles.strong}>Saudações, aventureiro(a)! </Text>
-          Este é um Jogo da Forca inspirado no universo de <Text style={styles.italics}><Text style={styles.strong}>Dungeons & Dragons</Text></Text>. Prepare-se para testar sua sorte e seus atributos de <Text style={styles.strong}>Inteligência e Sabedoria!</Text>
+          Este é um Jogo da Forca inspirado no universo de <Text style={styles.italics}><Text style={styles.strong}>Dungeons &amp; Dragons</Text></Text>. Prepare-se para testar sua sorte e seus atributos de <Text style={styles.strong}>Inteligência e Sabedoria!</Text>
         </Text>
 
         <View style={styles.list}>
           <Text style={styles.li}>• Você começa com 6 tentativas para acertar a palavra.</Text>
-          <Text style={styles.li}>• Digite uma letra por vez e clique em "Enviar".</Text>
+          <Text style={styles.li}>• Digite uma letra por vez e clique em &quot;Enviar&quot;.</Text>
           <Text style={styles.li}>• Letras corretas aparecem nas linhas e são destacadas em <Text style={styles.greenText}>verde</Text>.</Text>
           <Text style={styles.li}>• Letras erradas consomem tentativas e são destacadas em <Text style={styles.redText}>vermelho</Text>.</Text>
           <Text style={styles.li}>• Se acertar todas as letras, você vence!</Text>
           <Text style={styles.li}>• Se acabar as tentativas, o jogo termina.</Text>
-          <Text style={styles.li}>• Use o botão "Reiniciar" para começar outra partida.</Text>
+          <Text style={styles.li}>• Use o botão &quot;Reiniciar&quot; para começar outra partida.</Text>
         </View>
 
         <Text style={[styles.paragraph, styles.italics]}>

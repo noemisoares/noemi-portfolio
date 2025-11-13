@@ -34,10 +34,6 @@ export default function Forca() {
   const [status, setStatus] = useState("Jogando");
   const [aviso, setAviso] = useState("");
 
-  useEffect(() => {
-    iniciarJogo();
-  }, []);
-
   const iniciarJogo = () => {
     const novaPalavra = palavras[Math.floor(Math.random() * palavras.length)];
     setPalavra(novaPalavra);
@@ -48,7 +44,12 @@ export default function Forca() {
     setAviso("");
   };
 
-  const handleSubmit = () => {
+  useEffect(() => {
+    iniciarJogo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const enviarLetra = () => {
     const letra = letraInput.toLowerCase();
 
     if (!letra.match(/^[a-zá-ú]$/)) {
@@ -113,7 +114,7 @@ export default function Forca() {
               placeholder="Digite uma letra"
               placeholderTextColor={theme.colors.text + "88"}
             />
-            <TouchableOpacity style={styles.btn} onPress={handleSubmit}>
+            <TouchableOpacity style={styles.btn} onPress={enviarLetra}>
               <Text style={styles.btnText}>Enviar</Text>
             </TouchableOpacity>
           </View>

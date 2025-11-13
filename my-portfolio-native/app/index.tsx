@@ -1,4 +1,3 @@
-// app/index.tsx
 import React from 'react';
 import { ScrollView, View, Text, Image, StyleSheet } from 'react-native';
 import { theme } from '../constants/theme';
@@ -37,7 +36,6 @@ export default function Home() {
         </View>
       </View>
 
-      {/* Seções importadas (adaptarei quando você mandar components/) */}
       <View style={styles.section}>
         <Resume />
       </View>

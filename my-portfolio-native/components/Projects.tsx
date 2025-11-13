@@ -1,62 +1,175 @@
-// components/Projects.tsx
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Linking } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import { theme } from "../constants/theme";
 
 export function Projects() {
+  const router = useRouter();
+
   const projects = [
     {
-      name: "Chat de Aprendizado",
-      description: "Aplicação de chat com IA para estudo colaborativo.",
-      url: "https://github.com/noemisoares/chat-learn",
-    },
-    {
-      name: "Adaptador de Provas TDAH",
-      description: "App para adaptar provas para alunos com TDAH.",
-      url: "https://github.com/noemisoares/adapt-provas",
+      title: "Jogo da Forca",
+      description:
+        "Implementação do Jogo da Forca em JavaScript, React e React Native.",
+      link: "/forca",
+      image: require("../assets/banner_forca.png"),
+      tags: ["React", "React Native", "JavaScript"],
+      status: "Concluído",
     },
   ];
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Projetos Recentes</Text>
-      {projects.map((project) => (
-        <TouchableOpacity
-          key={project.name}
-          onPress={() => Linking.openURL(project.url)}
-          style={styles.card}
-        >
-          <Text style={styles.name}>{project.name}</Text>
-          <Text style={styles.description}>{project.description}</Text>
-        </TouchableOpacity>
-      ))}
+    <View style={styles.projectsSection}>
+      <Text style={styles.heading}>Meus Projetos</Text>
+      <Text style={styles.subtitle}>
+        Projetos que desenvolvi para aprimorar habilidades
+      </Text>
+
+      <View style={styles.projectsGrid}>
+        {projects.map((project, index) => (
+          <View key={index} style={styles.projectCard}>
+            {project.image && (
+              <Image source={project.image} style={styles.projectImage} />
+            )}
+            <View style={styles.statusBadge}>
+              <MaterialCommunityIcons
+                name="check-circle"
+                size={16}
+                color="#fff"
+              />
+              <Text style={styles.statusText}>{project.status}</Text>
+            </View>
+
+            <View style={styles.cardContent}>
+              <Text style={styles.projectTitle}>{project.title}</Text>
+              <Text style={styles.projectDescription}>
+                {project.description}
+              </Text>
+
+              <View style={styles.tagsContainer}>
+                {project.tags.map((tag, tagIndex) => (
+                  <View key={tagIndex} style={styles.tag}>
+                    <Text style={styles.tagText}>{tag}</Text>
+                  </View>
+                ))}
+              </View>
+
+              <TouchableOpacity
+                style={styles.projectButton}
+                activeOpacity={0.8}
+                onPress={() => router.push(project.link as any)}
+              >
+                <MaterialCommunityIcons
+                  name="arrow-right"
+                  size={20}
+                  color="#fff"
+                  style={{ marginRight: 8 }}
+                />
+                <Text style={styles.projectButtonText}>Ver Projeto</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        ))}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 32,
-    paddingHorizontal: 20,
+  projectsSection: {
+    marginTop: theme.spacing.lg,
+    paddingHorizontal: theme.spacing.md,
   },
-  title: {
-    fontSize: 18,
+  heading: {
+    fontSize: 20,
+    fontFamily: theme.fonts.bold,
     color: theme.colors.primary,
-    fontWeight: "bold",
-    marginBottom: 12,
+    marginBottom: theme.spacing.sm,
+    textAlign: "center",
   },
-  card: {
+  subtitle: {
+    fontSize: 13,
+    fontFamily: theme.fonts.regular,
+    color: "#888",
+    textAlign: "center",
+    marginBottom: theme.spacing.md,
+  },
+  projectsGrid: {
+    gap: theme.spacing.md,
+  },
+  projectCard: {
     backgroundColor: theme.colors.headerBackground,
-    padding: 16,
     borderRadius: theme.radius.md,
-    marginBottom: 10,
+    overflow: "hidden",
+    borderWidth: 1,
+    borderColor: theme.colors.primary + "15",
+    marginBottom: theme.spacing.md,
   },
-  name: {
-    fontWeight: "bold",
+  projectImage: {
+    width: "100%",
+    height: 180,
+  },
+  statusBadge: {
+    paddingHorizontal: theme.spacing.md,
+    paddingVertical: theme.spacing.sm,
+    backgroundColor: theme.colors.primary,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+  },
+  statusText: {
+    fontFamily: theme.fonts.bold,
+    fontSize: 12,
+    color: "#fff",
+  },
+  cardContent: {
+    padding: theme.spacing.md,
+  },
+  projectTitle: {
+    fontSize: 18,
+    fontFamily: theme.fonts.bold,
     color: theme.colors.text,
+    marginBottom: theme.spacing.sm,
   },
-  description: {
-    color: "#ccc",
-    marginTop: 4,
+  projectDescription: {
+    fontSize: 14,
+    fontFamily: theme.fonts.regular,
+    color: "#999",
+    lineHeight: 20,
+    marginBottom: theme.spacing.md,
+  },
+  tagsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: theme.spacing.sm,
+    marginBottom: theme.spacing.md,
+  },
+  tag: {
+    backgroundColor: theme.colors.primary + "15",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: theme.colors.primary + "30",
+  },
+  tagText: {
+    fontFamily: theme.fonts.regular,
+    fontSize: 12,
+    color: theme.colors.primary,
+  },
+  projectButton: {
+    backgroundColor: theme.colors.primary,
+    paddingVertical: theme.spacing.sm,
+    paddingHorizontal: theme.spacing.md,
+    borderRadius: theme.radius.sm,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+  projectButtonText: {
+    fontFamily: theme.fonts.bold,
+    color: "#fff",
+    fontSize: 14,
   },
 });

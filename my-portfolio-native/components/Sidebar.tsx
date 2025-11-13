@@ -7,10 +7,19 @@ import {
   Dimensions,
   Pressable,
   StyleSheet,
+  ScrollView,
 } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { theme } from "../constants/theme";
 
 const { width } = Dimensions.get("window");
+
+type MenuItem = {
+  label: string;
+  icon: string;
+  id: string;
+};
 
 type Props = {
   isOpen: boolean;
@@ -19,6 +28,15 @@ type Props = {
 
 export default function Sidebar({ isOpen, onClose }: Props) {
   const anim = useRef(new Animated.Value(width)).current;
+
+  const menuItems: MenuItem[] = [
+    { label: "Início", icon: "home", id: "home" },
+    { label: "Sobre", icon: "information", id: "about" },
+    { label: "Formação", icon: "school", id: "resume" },
+    { label: "Tecnologias", icon: "tools", id: "tech" },
+    { label: "Projetos", icon: "briefcase", id: "projects" },
+    { label: "Contato", icon: "email", id: "contact" },
+  ];
 
   useEffect(() => {
     if (isOpen) {
@@ -45,28 +63,55 @@ export default function Sidebar({ isOpen, onClose }: Props) {
       <Animated.View
         style={[styles.sidebar, { transform: [{ translateX: anim }] }]}
       >
-        <TouchableOpacity
-          onPress={onClose}
-          style={styles.closeBtn}
-          accessibilityLabel="Fechar menu"
-        >
-          <Text style={styles.closeText}>×</Text>
-        </TouchableOpacity>
+        <SafeAreaView edges={["top", "right", "bottom"]} style={{ flex: 1 }}>
+          <View style={styles.header}>
+            <View>
+              <Text style={styles.headerTitle}>Noemi Soares</Text>
+              <Text style={styles.headerSubtitle}>Dev & Designer</Text>
+            </View>
+            <TouchableOpacity
+              onPress={onClose}
+              style={styles.closeBtn}
+              activeOpacity={0.7}
+            >
+              <MaterialCommunityIcons
+                name="close"
+                size={28}
+                color={theme.colors.text}
+              />
+            </TouchableOpacity>
+          </View>
 
-        <View style={styles.menu}>
-          <TouchableOpacity onPress={onClose} style={styles.item}>
-            <Text style={styles.itemText}>Início</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={onClose} style={styles.item}>
-            <Text style={styles.itemText}>Sobre</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={onClose} style={styles.item}>
-            <Text style={styles.itemText}>Projetos</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={onClose} style={styles.item}>
-            <Text style={styles.itemText}>Contatos</Text>
-          </TouchableOpacity>
-        </View>
+          <ScrollView
+            style={styles.menu}
+            showsVerticalScrollIndicator={false}
+            bounces={false}
+          >
+            {menuItems.map((item) => (
+              <TouchableOpacity
+                key={item.id}
+                onPress={onClose}
+                style={styles.item}
+                activeOpacity={0.7}
+              >
+                <MaterialCommunityIcons
+                  name={item.icon as any}
+                  size={24}
+                  color={theme.colors.primary}
+                  style={styles.itemIcon}
+                />
+                <Text style={styles.itemText}>{item.label}</Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+
+          <View style={styles.footer}>
+            <View style={styles.divider} />
+            <Text style={styles.footerText}>
+              © {new Date().getFullYear()} Noemi Soares
+            </Text>
+          </View>
+        </SafeAreaView>
       </Animated.View>
     </View>
   );
@@ -87,7 +132,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: "100%",
     height: "100%",
-    backgroundColor: "#0a1c75ff",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   sidebar: {
     position: "absolute",
@@ -95,29 +140,72 @@ const styles = StyleSheet.create({
     top: 0,
     width: SIDEBAR_WIDTH,
     height: "100%",
-    backgroundColor: theme.dark.background,
-    padding: 20,
-    shadowColor: "#0a1c75ff",
+    backgroundColor: theme.colors.background,
+    shadowColor: "#000",
     shadowOffset: { width: -3, height: 0 },
-    shadowOpacity: 0.35,
+    shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 12,
   },
-  closeBtn: {
-    alignSelf: "flex-end",
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: theme.spacing.md,
+    paddingVertical: theme.spacing.md,
+    borderBottomWidth: 1,
+    borderBottomColor: theme.colors.primary + "15",
   },
-  closeText: {
-    fontSize: 32,
-    color: theme.dark.text,
+  headerTitle: {
+    fontFamily: theme.fonts.bold,
+    fontSize: 18,
+    color: theme.colors.text,
+  },
+  headerSubtitle: {
+    fontFamily: theme.fonts.regular,
+    fontSize: 12,
+    color: theme.colors.primary,
+    marginTop: 2,
+  },
+  closeBtn: {
+    padding: theme.spacing.sm,
   },
   menu: {
-    marginTop: 12,
+    flex: 1,
+    paddingVertical: theme.spacing.md,
   },
   item: {
-    paddingVertical: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: theme.spacing.md,
+    paddingVertical: theme.spacing.md,
+    marginHorizontal: theme.spacing.sm,
+    marginVertical: 4,
+    borderRadius: theme.radius.md,
+  },
+  itemIcon: {
+    marginRight: theme.spacing.md,
   },
   itemText: {
-    color: theme.dark.text,
-    fontSize: 18,
+    fontFamily: theme.fonts.bold,
+    fontSize: 16,
+    color: theme.colors.text,
+  },
+  footer: {
+    borderTopWidth: 1,
+    borderTopColor: theme.colors.primary + "15",
+    paddingHorizontal: theme.spacing.md,
+    paddingVertical: theme.spacing.md,
+  },
+  divider: {
+    height: 1,
+    backgroundColor: theme.colors.primary + "15",
+    marginBottom: theme.spacing.sm,
+  },
+  footerText: {
+    fontFamily: theme.fonts.regular,
+    fontSize: 11,
+    color: "#888",
+    textAlign: "center",
   },
 });
