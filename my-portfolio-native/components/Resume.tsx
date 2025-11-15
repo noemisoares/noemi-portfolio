@@ -103,12 +103,14 @@ const styles = StyleSheet.create({
     fontFamily: theme.fonts.bold,
     color: theme.colors.text,
     flex: 1,
+    marginTop: -18,
   },
   cardSubtitle: {
     fontSize: 13,
     fontFamily: theme.fonts.regular,
     color: "#999",
     lineHeight: 18,
+    marginTop: -24,
     marginLeft: 48,
   },
 });

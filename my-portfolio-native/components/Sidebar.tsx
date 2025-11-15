@@ -24,9 +24,10 @@ type MenuItem = {
 type Props = {
   isOpen: boolean;
   onClose: () => void;
+  onNavigate: (sectionId: string) => void;
 };
 
-export default function Sidebar({ isOpen, onClose }: Props) {
+export default function Sidebar({ isOpen, onClose, onNavigate }: Props) {
   const anim = useRef(new Animated.Value(width)).current;
 
   const menuItems: MenuItem[] = [
@@ -53,6 +54,11 @@ export default function Sidebar({ isOpen, onClose }: Props) {
       }).start();
     }
   }, [isOpen, anim]);
+
+  const handleItemPress = (itemId: string) => {
+    onNavigate(itemId);
+    onClose();
+  };
 
   if (!isOpen) return null;
 
@@ -90,7 +96,7 @@ export default function Sidebar({ isOpen, onClose }: Props) {
             {menuItems.map((item) => (
               <TouchableOpacity
                 key={item.id}
-                onPress={onClose}
+                onPress={() => handleItemPress(item.id)}
                 style={styles.item}
                 activeOpacity={0.7}
               >

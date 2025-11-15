@@ -6,7 +6,7 @@ import { theme } from "../constants/theme";
 const { width } = Dimensions.get("window");
 const COLUMNS = 2;
 const PADDING = theme.spacing.md;
-const CARD_WIDTH = (width - PADDING * 2 - theme.spacing.sm) / COLUMNS;
+const CARD_WIDTH = (width - PADDING * 4 - theme.spacing.sm) / COLUMNS;
 
 export function Languagens() {
   const techs = [

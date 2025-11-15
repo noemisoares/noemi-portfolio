@@ -1,4 +1,4 @@
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { ThemeProvider } from "@react-navigation/native";
 import { useColorScheme, View, StyleSheet } from "react-native";
 import { theme } from "../constants/theme";
@@ -8,9 +8,21 @@ import React, { useState } from "react";
 
 export default function RootLayout() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
   const colorScheme = useColorScheme();
   const isDark = colorScheme === "dark";
   const currentTheme = isDark ? theme.dark : theme.light;
+
+  const handleNavigate = (sectionId: string) => {
+    console.log(`Navegando para: ${sectionId}`);
+
+    router.push({
+      pathname: "/",
+      params: { sectionToScroll: sectionId },
+    });
+
+    setMenuOpen(false);
+  };
 
   const navigationTheme = {
     dark: isDark,
@@ -34,8 +46,11 @@ export default function RootLayout() {
     <ThemeProvider value={navigationTheme}>
       <View style={styles.container}>
         <Header onToggle={() => setMenuOpen((s) => !s)} />
-        <Sidebar isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
-
+        <Sidebar
+          isOpen={menuOpen}
+          onClose={() => setMenuOpen(false)}
+          onNavigate={handleNavigate}
+        />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="index" />
           <Stack.Screen name="forca/index" />
