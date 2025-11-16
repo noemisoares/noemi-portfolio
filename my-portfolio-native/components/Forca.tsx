@@ -10,7 +10,7 @@ export default function Forca() {
     "halfling", "humano", "dragonborn", "tiefling", "gnomo", "duende",
     "machado", "cajado", "adaga", "arco", "espada", "escudo",
     "anel", "armadura", "carisma", "luvas", "botas", "mimico",
-    "grimoire", "runas", "feitico", "campanha", "missao",
+    "grimorio", "runas", "feitico", "campanha", "missao",
     "aventura", "tesouro", "dragao", "castelo", "floresta",
     "masmorra", "tiamat", "bahamut", "guilda", "beholder",
     "bestiario", "lich", "owlbear", "tarrasque", "ritual",
@@ -46,7 +46,6 @@ export default function Forca() {
 
   useEffect(() => {
     iniciarJogo();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const enviarLetra = () => {
@@ -177,9 +176,9 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   imagem: {
-    width: 300,
-    height: 300,
-    marginTop: -60,
+    width: 400,
+    height: 400,
+    marginTop: -70,
     marginBottom: -50,
   },
   palavra: {
@@ -203,9 +202,9 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.secondary,
     borderRadius: 8,
     padding: 8,
-    fontSize: 20,
+    fontSize: 12,
     textAlign: "center",
-    width: 80,
+    width: 110,
     color: theme.colors.text,
   },
   btn: {

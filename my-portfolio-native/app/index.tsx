@@ -20,8 +20,8 @@ export default function Home() {
       const positions: any = {
         home: 0,
         about: 0,
-        resume: 200,
-        tech: 700,
+        resume: 400,
+        tech: 1000,
         projects: 1800,
         contact: 2400,
       };
