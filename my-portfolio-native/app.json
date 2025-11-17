@@ -25,7 +25,7 @@
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/icon.png"
+      "favicon": "./assets/dadodnd.png"
     },
     "plugins": [
       "expo-router",
