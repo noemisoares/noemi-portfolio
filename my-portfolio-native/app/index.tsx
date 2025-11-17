@@ -19,10 +19,6 @@ export default function Home() {
 
       const positions: any = {
         home: 0,
-        about: 0,
-        resume: 400,
-        tech: 1000,
-        projects: 1800,
         contact: 2400,
       };
 
@@ -121,7 +117,7 @@ const styles = StyleSheet.create({
   },
   bold: {
     fontFamily: theme.fonts.bold,
-    color: theme.colors.secondary || theme.colors.accent,
+    color: theme.colors.secondary,
   },
   section: {
     marginTop: theme.spacing.lg,

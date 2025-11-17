@@ -49,7 +49,6 @@ export default function RootLayout() {
         <Sidebar
           isOpen={menuOpen}
           onClose={() => setMenuOpen(false)}
-          onNavigate={handleNavigate}
         />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="index" />

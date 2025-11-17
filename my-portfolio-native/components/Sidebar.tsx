@@ -12,6 +12,7 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { theme } from "../constants/theme";
+import { router } from "expo-router";
 
 const { width } = Dimensions.get("window");
 
@@ -24,10 +25,9 @@ type MenuItem = {
 type Props = {
   isOpen: boolean;
   onClose: () => void;
-  onNavigate: (sectionId: string) => void;
 };
 
-export default function Sidebar({ isOpen, onClose, onNavigate }: Props) {
+export default function Sidebar({ isOpen, onClose }: Props) {
   const anim = useRef(new Animated.Value(width)).current;
 
   const menuItems: MenuItem[] = [
@@ -40,23 +40,40 @@ export default function Sidebar({ isOpen, onClose, onNavigate }: Props) {
   ];
 
   useEffect(() => {
-    if (isOpen) {
-      Animated.timing(anim, {
-        toValue: 0,
-        duration: 280,
-        useNativeDriver: true,
-      }).start();
-    } else {
-      Animated.timing(anim, {
-        toValue: width,
-        duration: 240,
-        useNativeDriver: true,
-      }).start();
-    }
+    Animated.timing(anim, {
+      toValue: isOpen ? 0 : width,
+      duration: isOpen ? 280 : 240,
+      useNativeDriver: true,
+    }).start();
   }, [isOpen, anim]);
 
-  const handleItemPress = (itemId: string) => {
-    onNavigate(itemId);
+  const handleItemPress = (id: string) => {
+    switch (id) {
+      case "home":
+        router.push("/");
+        break;
+
+      case "about":
+        router.push("/about");
+        break;
+
+      case "resume":
+        router.push("/resume");
+        break;
+
+      case "tech":
+        router.push("/tech");
+        break;
+
+      case "projects":
+        router.push("/projects");
+        break;
+
+      case "contact":
+        router.push("/?sectionToScroll=contact");
+        break;
+    }
+
     onClose();
   };
 
@@ -75,11 +92,8 @@ export default function Sidebar({ isOpen, onClose, onNavigate }: Props) {
               <Text style={styles.headerTitle}>Noemi Soares</Text>
               <Text style={styles.headerSubtitle}>Dev & Designer</Text>
             </View>
-            <TouchableOpacity
-              onPress={onClose}
-              style={styles.closeBtn}
-              activeOpacity={0.7}
-            >
+
+            <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
               <MaterialCommunityIcons
                 name="close"
                 size={28}
@@ -88,17 +102,12 @@ export default function Sidebar({ isOpen, onClose, onNavigate }: Props) {
             </TouchableOpacity>
           </View>
 
-          <ScrollView
-            style={styles.menu}
-            showsVerticalScrollIndicator={false}
-            bounces={false}
-          >
+          <ScrollView style={styles.menu} showsVerticalScrollIndicator={false}>
             {menuItems.map((item) => (
               <TouchableOpacity
                 key={item.id}
                 onPress={() => handleItemPress(item.id)}
                 style={styles.item}
-                activeOpacity={0.7}
               >
                 <MaterialCommunityIcons
                   name={item.icon as any}
