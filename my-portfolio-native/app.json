@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "my-portfolio-native",
+    "name": "Meu Portfólio",
     "slug": "my-portfolio-native",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/dadodnd.png",
     "scheme": "myportfolionative",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,17 +13,17 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/icon.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "backgroundColor": "#1b1e23",
+        "foregroundImage": "./assets/dadodnd.png",
+        "backgroundImage": "./assets/dadodnd.png",
+        "monochromeImage": "./assets/dadodnd.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/icon.png"
     },
     "plugins": [
       "expo-router",
@@ -43,6 +43,18 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "35292c7e-716c-48d7-b232-13cf742f3fb8"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/35292c7e-716c-48d7-b232-13cf742f3fb8"
     }
   }
 }
