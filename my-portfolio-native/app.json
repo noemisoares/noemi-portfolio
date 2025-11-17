@@ -19,7 +19,8 @@
         "monochromeImage": "./assets/dadodnd.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.noemisoares.myportfolionative"
     },
     "web": {
       "output": "static",
